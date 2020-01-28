@@ -6,6 +6,7 @@ if (!empty($_GET["username"])) {
     $result = $db_handle->updateQuery($query);
     if (!empty($result)) {
         $message = "Your account is activated.";
+        header("Location:../Signin.php?verification=YourAccounthasbeenactivated");
     } else {
         $message = "Problem in account activation.";
     }

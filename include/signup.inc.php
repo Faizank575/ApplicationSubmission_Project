@@ -7,7 +7,6 @@ use PHPMailer\PHPMailer\Exception;
 
 require '../vendor/autoload.php';
 require 'credentials.php';
-echo 'signup page';
 if (isset($_POST['signup_button'])) {
     require_once("dbController.php");
     $db_handle = new DBController();
@@ -16,12 +15,9 @@ if (isset($_POST['signup_button'])) {
     $query = "SELECT * FROM users where useremail = '$useremail'";
     $count = $db_handle->numRows($query);
     if ($count == 0) {
-        echo $useremail;
         $anotherquery = "INSERT INTO users (useremail,password) VALUES('$useremail','$userpassword')";
         $current_id = $db_handle->insertQuery($anotherquery);
-        echo $current_id;
         if ($current_id == "success") {
-            echo 'hello';
             $mail = new PHPMailer(TRUE);
             /* Open the try/catch block. */
             try {
@@ -36,11 +32,9 @@ if (isset($_POST['signup_button'])) {
                 $mail->Subject = 'Test Email';
 
                 $actual_link = "http://$_SERVER[HTTP_HOST]/WebProject/include/" . "activation.php?username=" . $useremail;
-                echo $actual_link;
 
                 /* Set the mail message body. */
                 $mail->Body = "Click this link to activate your account. <a href='" . $actual_link . "'>" . $actual_link . "</a>";
-                echo ($mail->Body);
 
 
                 /* Tells PHPMailer to use SMTP. */
@@ -74,6 +68,7 @@ if (isset($_POST['signup_button'])) {
                 echo $e->getMessage();
             }
             unset($_POST);
+            header("Location:../Signin.php?activation=emailhasbeensent");
         } else {
             $message = "Problem in registration. Try Again!";
         }

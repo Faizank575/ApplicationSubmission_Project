@@ -99,7 +99,7 @@ include_once('include/dashboard.header.php');
                                         </tr>
                                         <tr>
                                             <th scope="row">Corparate Registration Document</th>
-                                            <th id="corporateRegistrationDocument"><button id="CorporateButton" target="#modalIMG" data-toggle="modal" type="button" class="btn btn-primary viewdocument">View Document</button></th>
+                                            <th id="corporateRegistrationDocument"><button id="CorporateButton" type="button" class="btn btn-primary viewdocument">View Document</button></th>
                                         </tr>
                                         <tr>
                                             <th scope="row">Company Address</th>
