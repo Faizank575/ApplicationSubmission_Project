@@ -44,11 +44,11 @@
 <div aria-hidden="true" aria-labelledby="myModalLabel" class="modal fade" id="modalIMG" role="dialog" tabindex="-1">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
-            <div class="modal-body mb-0 p-0">
-                <img src="https://i3.ytimg.com/vi/vr0qNXmkUJ8/maxresdefault.jpg" alt="" style="width:100%">
+            <div id="modalbody" class="modal-body">
+                <img src="" alt="" style="width:100%">
             </div>
             <div class="modal-footer">
-                <div><a href="https://i3.ytimg.com/vi/vr0qNXmkUJ8/maxresdefault.jpg" target="_blank">Download</a></div>
+                <div><a href="" target="_blank" download>Download</a></div>
                 <button class="btn btn-outline-primary btn-rounded btn-md ml-4 text-center" data-dismiss="modal" type="button">Close</button>
             </div>
         </div>

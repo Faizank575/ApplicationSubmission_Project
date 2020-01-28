@@ -25,9 +25,9 @@ $(document).ready(function () {
         $("#ApplicantCity").html(obj['applicantcity']);
         $("#companyName").html(obj['companyname']);
 
-        // var CorporateButton = '<button  id="CorporateButton" target="#modalIMG" data-toggle="modal" type="button" class="btn btn-primary viewdocument" data-url="' + obj['corporateregistrationdocument'] + '">View Document</button>'
-        // $("#corporateRegistrationDocument").html(CorporateButton);
-        $('#corporateRegistrationDocument button').attr("data-url", obj['corporateregistrationdocument']);
+        var CorporateButton = '<button  id="CorporateButton" type="button" class="btn btn-primary viewdocument"  data-url="' + obj['corporateregistrationdocument'] + '">View Document</button>'
+        $("#corporateRegistrationDocument").html(CorporateButton);
+        // $('#corporateRegistrationDocument button').attr("data-url", obj['corporateregistrationdocument']);
         $("#companyAddress").html(obj['companyaddress']);
         $("#companycountry").html(obj['companycountry']);
         $("#companyProvince").html(obj['companyprovince']);
@@ -86,9 +86,12 @@ $(document).ready(function () {
             $(a.target).prev('.panel-heading').removeClass('active');
         });
 
-    $('.viewdocument').click(function (event) {
+    $(document).on('click', 'button.viewdocument', function (event) {
         event.preventDefault();
         console.log("click");
+        var url = 'http://localhost/WebProject/' + $(this).attr('data-url');
+        $(".modal-footer a").attr('href', url);
+        $("#modalbody img").attr('src', url)
         $("#modalIMG").modal('show');
     })
 });
